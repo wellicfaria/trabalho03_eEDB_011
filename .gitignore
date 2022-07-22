@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#nao commitar os dados
+*snappy.parquet*
+
+/0_data/stage/*/*json
