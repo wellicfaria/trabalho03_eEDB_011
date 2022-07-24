@@ -42,6 +42,13 @@ De que coisas você precisa para instalar o software e como instalá-lo?
 
 Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
 
+0) Primeiro de tudo, você deve:
+
+* Instalar o [VS Code](https://code.visualstudio.com/)
+* Abra o projeto no VS Code.
+* Seguir esse tutorial para configurar Docker no VS code: [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers) 
+* Apertar 'ctrl + P', dentro da caixa aberta digite '> open Folder in container'. 
+
 1) Pegar o IP do banco de dados Mysql: 
 
 ```
