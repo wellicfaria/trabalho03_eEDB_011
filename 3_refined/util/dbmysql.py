@@ -1,4 +1,4 @@
-url = 'jdbc:mysql://172.17.0.3:3306/DW'
+url = 'jdbc:mysql://172.18.0.2:3306/DW'
 password = '123456'
 user = 'admin'
 
