@@ -58,7 +58,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db_m
 Alterar o arquivo refined/util/dbmysql.py com ip do banco, se necessário. 
 
 
-2) Instalando as Dependencias do projeto:
+2) Instalando as Dependências do projeto:
 ```
 
 pip install -r /workspaces/trabalho03_eEDB_011/requirements.txt
@@ -70,8 +70,33 @@ pip install -r /workspaces/trabalho03_eEDB_011/requirements.txt
 
 Executar os comandos:
 ```
-    chmod 777 start_airflow.sh
-    ./ start_airflow.sh
+    pip install "apache-airflow[celery]==2.3.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.3/constraints-3.7.txt"
+    airflow standalone
+```
+
+A fim de alterar o local das pastas DAGs e LOGs, cria-se as pastas em sua raíz:
+```
+    cd /workspaces/trabalho03_eEDB_011
+    mkdir dags
+    mkdir logs
+```
+Logo em seguida, altera-se o caminho da pasta DAGs e LOGs no arquivo `airflow.cfg` utilizando o seu editor de preferência (aqui está sendo utilizado o Visual Studio Code):
+```
+    code /home/vscode/airflow/airflow.cfg
+```
+Alterar a linha
+```
+dags_folder = /home/vscode/airflow/dags
+```
+para:
+```
+dags_folder = /workspaces/trabalho03_eEDB_011/dags
+```
+
+Alterar também:
+```
+base_log_folder = /home/vscode/airflow/logs
+base_log_folder = /workspaces/trabalho03_eEDB_011/logs
 ```
 
 Abrir um terminal e criar um usuário
