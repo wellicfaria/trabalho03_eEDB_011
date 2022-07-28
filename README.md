@@ -144,7 +144,7 @@ Para acessá-la, rode:
 dbt docs serve --port 1212 --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011
 ```
 
-<img src="/workspaces/trabalho03_eEDB_011/images/DBT.png" width="75%">
+<img src="./workspaces/trabalho03_eEDB_011/images/DBT.png" width="75%">
 
 ### Resultados
 
@@ -156,7 +156,7 @@ Passos do fluxo utilizado no `Airflow`:
 4. Análise de chaves únicas e valores nulos utilizando os testes presentes no DBT: `DM_CATEGORIA_TEST`, `DM_INSTITUICAO_TEST`, `DM_TIPO_TEST`, `DM_INDICE_TEST`
 4. Desenvolvimento da tabela Fato: `FT_INDICE_RECLAMACAO`
 
-<img src="/workspaces/trabalho03_eEDB_011/images/Airflow.png" width="75%">
+<img src="./workspaces/trabalho03_eEDB_011/images/Airflow.png" width="75%">
 
 ## 🛠️ Construído com
 * [Docker](https://www.docker.com/) - Utilizado para repositório
