@@ -24,14 +24,14 @@ Consulte **Implantação** para saber como implantar o projeto.
 
 ## 📋 Requerimentos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+Requisitos do trabalho:
 
 ```
 Leitura das Fontes:
     - Leitura de um csv
         - Escreve na RAW 
     - Leitura de uma API
-            - Escreve na RAW
+        - Escreve na RAW
 Limpar os dados:
     - Lê os dados das RAW, escreve na  pasta TRUSTED fazendo a LIMPEZA DOS DADOS.
 Consumo:
@@ -43,8 +43,6 @@ Camanda de Visualização:
 
 
 ## 🔧 Instalação
-
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
 
 Primeiro de tudo, você deve:
 
