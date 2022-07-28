@@ -144,7 +144,7 @@ Para acessá-la, rode:
 dbt docs serve --port 1212 --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011
 ```
 
-<img src="./workspaces/trabalho03_eEDB_011/images/DBT.png" width="75%">
+<img src="./images/DBT.png" width="75%">
 
 ### Resultados
 
