@@ -2,20 +2,47 @@
 version: 2
 
 models:
-  - name: my_first_dbt_model
+  - name: DM_CATEGORIA
     description: "A starter dbt model"
     columns:
-      - name: id
+      - name: ID_CAT
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
 
-  - name: my_second_dbt_model
+  - name: DM_INDICE
     description: "A starter dbt model"
     columns:
-      - name: id
+      - name: ID_IND
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
+
+  - name: DM_INSTITUICAO
+    description: "A starter dbt model"
+    columns:
+      - name: ID_INST
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: DM_TIPO
+    description: "A starter dbt model"
+    columns:
+      - name: ID_IP
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: FT_INDICE_RECLAMACAO
+    description: "A starter dbt model"
+    columns:
+      - name: ID_IP
+        description: "The primary key for this table"
+        tests:
+          # - unique
+          # - not_null

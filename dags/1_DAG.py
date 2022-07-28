@@ -78,27 +78,51 @@ with DAG(
     refined_t6 = BashOperator(
         task_id='DM_CATEGORIA',
         depends_on_past=False,
-        bash_command='python /workspaces/trabalho03_eEDB_011/3_refined/DM_CATEGORIA.py',
+        bash_command='dbt run --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_CATEGORIA',
+    )
+    refined_t6_test = BashOperator(
+        task_id='DM_CATEGORIA_TEST',
+        depends_on_past=False,
+        bash_command='dbt test --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_CATEGORIA',
     )
     refined_t7 = BashOperator(
         task_id='DM_INDICE',
         depends_on_past=False,
-        bash_command='python /workspaces/trabalho03_eEDB_011/3_refined/DM_INDICE.py',
+        bash_command='dbt run --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_INDICE',
+    )
+    refined_t7_test = BashOperator(
+        task_id='DM_INDICE_TEST',
+        depends_on_past=False,
+        bash_command='dbt test --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_INDICE',
     )
     refined_t8 = BashOperator(
         task_id='DM_TIPO',
         depends_on_past=False,
-        bash_command='python /workspaces/trabalho03_eEDB_011/3_refined/DM_TIPO.py',
+        bash_command='dbt run --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_TIPO',
+    )
+    refined_t8_test = BashOperator(
+        task_id='DM_TIPO_TEST',
+        depends_on_past=False,
+        bash_command='dbt test --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_TIPO',
     )
     refined_t9 = BashOperator(
         task_id='DM_INSTITUICAO',
         depends_on_past=False,
-        bash_command='python /workspaces/trabalho03_eEDB_011/3_refined/DM_INSTITUICAO.py',
+        bash_command='dbt run --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_INSTITUICAO',
+    )
+    refined_t9_test = BashOperator(
+        task_id='DM_INSTITUICAO_TEST',
+        depends_on_past=False,
+        bash_command='dbt test --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select DM_INSTITUICAO',
     )
     refined_t10 = BashOperator(
         task_id='FT_INDICE_RECLAMACAO',
         depends_on_past=False,
-        bash_command='python /workspaces/trabalho03_eEDB_011/3_refined/FT_INDICE_RECLAMACAO.py',
+        bash_command='dbt run --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011 --select FT_INDICE_RECLAMACAO',
     )
 
-    t1 >> raw_t2 >> raw_t3 >> trusted_t4 >> trusted_t5 >> [refined_t6, refined_t7, refined_t8, refined_t9] >> refined_t10
+    t1 >> raw_t2 >> raw_t3 >> trusted_t4 >> trusted_t5 >> [refined_t6, refined_t7, refined_t8, refined_t9] 
+    refined_t6 >> refined_t6_test >> refined_t10
+    refined_t7 >> refined_t7_test >> refined_t10
+    refined_t8 >> refined_t8_test >> refined_t10
+    refined_t9 >> refined_t9_test >> refined_t10

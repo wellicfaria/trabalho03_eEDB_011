@@ -116,12 +116,13 @@ airflow users create \
     --email wellicfaria@gmail.com
 ```
 
-Acessar o `Airflow`:
+## Acessar o `Airflow`:
 * Link: http://localhost:8080/home
 * Usuário: airflow
 * Senha: airflow
 
-## 🔩 Análise os testes de ponta a ponta
+
+## 🔩 Acesso ao banco de dados
 
 Para acessar o banco de dados e fazer o SQL, utilize a senha = `123456`
 
@@ -131,8 +132,33 @@ docker exec -it  db_mysql bash
 mysql -uroot -p
 ```
 
-## 🛠️ Construído com
+## 🔩 Acesso ao DBT Docs
 
+Para gerar a documentação, rode:
+```
+dbt docs generate --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011
+```
+
+Para acessá-la, rode:
+```
+dbt docs serve --port 1212 --project-dir /workspaces/trabalho03_eEDB_011/dw_dbt --profiles-dir /workspaces/trabalho03_eEDB_011
+```
+
+<img src="/workspaces/trabalho03_eEDB_011/images/DBT.png" width="75%">
+
+### Resultados
+
+Passos do fluxo utilizado no `Airflow`:
+
+1. Carga dos arquivos _raw_: `file_csv_war`, `api_raw`
+2. Carga dos arquivos _trusted_: `file_csv_trusted`, `api_trusted`
+3. Geração das tabelas na camada _refined_ utilizando DBT: `DM_CATEGORIA`, `DM_INSTITUICAO`, `DM_TIPO`, `DM_INDICE`
+4. Análise de chaves únicas e valores nulos utilizando os testes presentes no DBT: `DM_CATEGORIA_TEST`, `DM_INSTITUICAO_TEST`, `DM_TIPO_TEST`, `DM_INDICE_TEST`
+4. Desenvolvimento da tabela Fato: `FT_INDICE_RECLAMACAO`
+
+<img src="/workspaces/trabalho03_eEDB_011/images/Airflow.png" width="75%">
+
+## 🛠️ Construído com
 * [Docker](https://www.docker.com/) - Utilizado para repositório
 * [Python](https://www.python.org/) - Linhas de código utilizado para programação;
 * [PySpark](https://spark.apache.org/docs/latest/api/python/) - Utilizado para ETL dos dados;
@@ -142,7 +168,6 @@ mysql -uroot -p
 
 
 ## ✒️ Autores
-
 * [Rodrigo Vitorino](https://github.com/digaumlv)
 * [Thais Nabe](https://github.com/thaisnabe)
 * [Vitor Marques](https://github.com/vitormrqs)

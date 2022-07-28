@@ -4,12 +4,14 @@
 
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
+from util import dbmysql
+
 
 PATH_RAW = '/workspaces/trabalho03_eEDB_011/0_data/raw/reclamacao'
 PATH_TRUSTED = '/workspaces/trabalho03_eEDB_011/0_data/trusted/reclamacao'
 
 
-spark = SparkSession.builder.appName("TRUSTED_CSV").getOrCreate()
+spark = SparkSession.builder.appName("TRUSTED_CSV").config("spark.jars", "/workspaces/trabalho03_eEDB_011/drives/mysql-connector-java-8.0.22.jar").getOrCreate()
 
 df = spark.read.parquet(PATH_RAW)
 df = df.drop('C14')
@@ -39,3 +41,5 @@ df = df.where(F.col('CNPJ_IF').cast('bigint').isNotNull())
 
 df.write.mode('overwrite').parquet(PATH_TRUSTED)
 
+TABLE_MYSQL = 'stage.file_csv_trusted'
+dbmysql.write_mysql(df,TABLE_MYSQL)

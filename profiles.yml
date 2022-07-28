@@ -3,12 +3,12 @@ dw_dbt:
   outputs:
     dev:
       type: mysql
-      server: [server/host]
-      port: [port]  # optional
-      database: [schema] # optional, should be same as schema
-      schema: [schema]
-      username: [username]
-      password: [password]
+      server: 172.18.0.2
+      port: 3306 # optional
+      database: stage # optional, should be same as schema
+      schema: stage
+      username: root
+      password: '123456'
       driver: MySQL ODBC 8.0 ANSI Driver
     prod:
       type: mysql
